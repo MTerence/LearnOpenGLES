@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB93E9832819A4F400C57BCC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AB93E9822819A4F400C57BCC /* README.md */; };
 		ABBCBF17281262B200A292B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCBF16281262B200A292B7 /* AppDelegate.swift */; };
 		ABBCBF1B281262B200A292B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCBF1A281262B200A292B7 /* ViewController.swift */; };
 		ABBCBF20281262B400A292B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABBCBF1F281262B400A292B7 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB93E9822819A4F400C57BCC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		ABBCBF13281262B200A292B7 /* LearnOpenGLES1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnOpenGLES1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBCBF16281262B200A292B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABBCBF1A281262B200A292B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 		ABBCBF15281262B200A292B7 /* LearnOpenGLES1 */ = {
 			isa = PBXGroup;
 			children = (
+				AB93E9822819A4F400C57BCC /* README.md */,
 				ABBCBF2C2812637600A292B7 /* for_test.jpg */,
 				ABBCBF16281262B200A292B7 /* AppDelegate.swift */,
 				ABBCBF1A281262B200A292B7 /* ViewController.swift */,
@@ -124,6 +127,7 @@
 			files = (
 				ABBCBF23281262B400A292B7 /* LaunchScreen.storyboard in Resources */,
 				ABBCBF2D2812637600A292B7 /* for_test.jpg in Resources */,
+				AB93E9832819A4F400C57BCC /* README.md in Resources */,
 				ABBCBF20281262B400A292B7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

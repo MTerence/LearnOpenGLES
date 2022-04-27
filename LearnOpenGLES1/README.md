@@ -1,28 +1,8 @@
-//
-//  ViewController.swift
-//  LearnOpenGLES1
-//
-//  Created by Ternence on 2022/4/22.
-//
+# LearnOpenGLES
+LearnOpenGLES-Swift 用Swift语言实现的iOS端OpenGLES使用
 
-import UIKit
-import GLKit
-
-/*
- 'GLKViewController' was deprecated in iOS 12.0: OpenGLES API deprecated. (Define GLES_SILENCE_DEPRECATION to silence these warnings)
- Project--Build Settings - Preprocessor Macros 配置 GLES_SILENCE_DEPRECATION=1
- */
-// http://t.zoukankan.com/duzhaoquan-p-12905065.html
-/*
- 使用OpenGLES 渲染一张图片，主要步骤如下
- 1. 创建图层
- 2. 创建上下文
- 3. 清空缓存区
- 4. 设置renderbuffer
- 5. 设置framebuffer
- 6. 开始绘制，此步骤包含编译连接使用着色器程序，及加载纹理图片
- 7. 析构函数中释放buffer
- */
+## [LearnOpenGLES1] 将图片通过GLKViewController渲染到屏幕
+```
 class ViewController: GLKViewController {
 
     var mContext: EAGLContext?  = nil
@@ -151,4 +131,4 @@ class ViewController: GLKViewController {
 
 
 }
-
+```
