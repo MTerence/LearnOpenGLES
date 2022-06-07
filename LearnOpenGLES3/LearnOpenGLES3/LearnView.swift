@@ -117,7 +117,7 @@ class LearnView: UIView {
     
     // 设置帧缓冲区
     // 生成缓冲区后，需要将renderbuffer 跟framebuffer进行绑定
-    // 调用glFramebufferRenderbuffer函数进行绑定到对应的附着点上，后边的绘制才会起作用
+    // 调用glFzramebufferRenderbuffer函数进行绑定到对应的附着点上，后边的绘制才会起作用
     func setupFrameBuffer() {
         glGenFramebuffers(1, &self.myColorFrameBuffer)
         glBindFramebuffer(GLenum(GL_FRAMEBUFFER), self.myColorFrameBuffer)

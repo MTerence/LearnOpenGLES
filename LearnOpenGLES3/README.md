@@ -1,34 +1,8 @@
-//
-//  LearnView.swift
-//  LearnOpenGLES1
-//
-//  Created by Ternence on 2022/4/25.
-//
-//https://www.jianshu.com/p/ee597b2bd399
-/*
- 使用OpenGLES 渲染一张图片，主要步骤如下
- 1. 创建图层
- 2. 创建上下文
- 3. 清空缓存区
- 4. 设置renderbuffer
- 5. 设置framebuffer
- 6. 开始绘制，此步骤包含编译连接使用着色器程序，及加载纹理图片
- 7. 析构函数中释放buffer
- */
+# LearnOpenGLES-Swift
+LearnOpenGLES-Swift 用Swift语言实现的iOS端OpenGLES使用
 
-//纹理：纹理是一个用来保存图像的颜色元素值的OpenGL ES缓存
-//当用一个图像初始化一个纹理缓存之后，在这个图像中的每个像素变成了纹理中的一个纹素,与像素类似，纹素保存颜色数据
-//像素和纹素的差别: 像素表示计算机屏幕的一个实际的颜色点，纹素存在与一个虚拟的没有尺寸的数学坐标系中
-//纹理的坐标系是有S和T的2D轴。数值0~1
-//EAGL前缀： Embeded Apple GL 嵌入式
-
-// 帧缓存中像素的位置叫做视口(viewport)坐标
-// 在每个顶点的X、Y、Z坐标被转换为视口坐标后，GPU会设置转换生成的三角形内的每个像素的颜色,转换几何形状数据为帧缓存中的颜色像素点的渲染步骤叫做点阵化(rasterizing),每个颜色像素叫做片元(fragment)
-//
-
-import UIKit
-import GLKit
-
+## [LearnOpenGLES3] 将图片通过CAEAGLLayer渲染到屏幕
+```
 class LearnView: UIView {
     
     weak var myEagLayer: CAEAGLLayer!
@@ -117,7 +91,7 @@ class LearnView: UIView {
     
     // 设置帧缓冲区
     // 生成缓冲区后，需要将renderbuffer 跟framebuffer进行绑定
-    // 调用glFramebufferRenderbuffer函数进行绑定到对应的附着点上，后边的绘制才会起作用
+    // 调用glFzramebufferRenderbuffer函数进行绑定到对应的附着点上，后边的绘制才会起作用
     func setupFrameBuffer() {
         glGenFramebuffers(1, &self.myColorFrameBuffer)
         glBindFramebuffer(GLenum(GL_FRAMEBUFFER), self.myColorFrameBuffer)
@@ -147,15 +121,13 @@ class LearnView: UIView {
         }
         
         //设置顶点、纹理坐标
-        //顶点坐标系 X、Y、Z   U、V
-        //U坐标映射顶点在视口中的最终位置到纹理中沿着S轴的位置,V映射到T轴
         let vertexs: [GLfloat] = [
-            0.5, -0.5, -1.0,    1.0, 0.0,
+            0.5, -0.5, -1.0,     1.0, 0.0,
            -0.5, 0.5, -1.0,     0.0, 1.0,
            -0.5, -0.5, -1.0,    0.0, 0.0,
                   
            0.5, 0.5, -1.0,      1.0, 1.0,
-          -0.5, 0.5, -1.0,      0.0, 1.0,
+          -0.5, 0.5, -1.0,     0.0, 1.0,
            0.5, -0.5, -1.0,     1.0, 0.0,
        ]
         
@@ -295,4 +267,34 @@ class LearnView: UIView {
         glUniformMatrix4fv(rotate, 1, 0, zRotation)
 
     }
+    
+//    func rotateTextureImage(program:GLuint)  {
+//
+//            //获取旋转180度的矩阵
+//            var rotateM = GLKMatrix4MakeZRotation(Float.pi).getArray()
+//
+//            //rotateM = GLKMatrix4Identity.getArray()
+//            glUniformMatrix4fv(glGetUniformLocation(program, "rotateMatrix"), 1, 0, rotateM)
+//    }
+
 }
+
+
+
+extension GLKMatrix4 {
+    
+    /// 转成数组
+    /// - Returns: 结果数组
+    func getArray() ->[Float] {
+         [
+            m00,m01,m02,m03,
+            m10,m11,m12,m13,
+            m20,m21,m22,m23,
+            m30,m31,m32,m33,
+        ]
+        
+    }
+    
+}
+```
+

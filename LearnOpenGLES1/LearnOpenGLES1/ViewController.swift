@@ -119,9 +119,13 @@ class ViewController: GLKViewController {
     }
     
     func uploadTextture() {
-        let filePath = Bundle.main.path(forResource: "for_test", ofType: "jpg")!
         let options: [String: NSNumber] = [GLKTextureLoaderOriginBottomLeft: 1]
-        let texture = try? GLKTextureLoader.texture(withContentsOfFile: filePath, options: options)
+//        let filePath = Bundle.main.path(forResource: "for_test", ofType: "jpg")!
+//        let texture = try? GLKTextureLoader.texture(withContentsOfFile: filePath, options: options)
+        
+        guard let imageRef = UIImage(named: "for_test.jpg")?.cgImage else { return }
+        let texture = try? GLKTextureLoader.texture(with: imageRef, options: options)
+        
         
         //create a base effect that provides standard OpenGL ES 2.0
         // shading language programs and set constant to be used for all subsequent rendering
@@ -133,7 +137,7 @@ class ViewController: GLKViewController {
     
     override func glkView(_ view: GLKView, drawIn rect: CGRect) {
         // set the background color stored in the current context
-        // 设置当前OpenGL ES 的上下文的`清除颜色`, 用于在上下午的帧缓存在被清除时，初始化每个像素的颜色值
+        // 设置当前OpenGL ES 的上下文的`清除颜色`, 用于在上下文的帧缓存在被清除时，初始化每个像素的颜色值
         glClearColor(0.3, 0.6, 1.0, 1.0)
         // clear frame buffer(erase previous drawing)
         // 设置当前绑定的帧缓存的每个像素颜色为glClearColor 设定的颜色
