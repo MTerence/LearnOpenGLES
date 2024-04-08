@@ -168,7 +168,7 @@ class LearnView: UIView {
         
         //将顶点数据通过Program传递到顶点着色器程序的position属性上
         //.1 glGetAttribLocation用来获取vertext attrib的入口的
-        //.2 告诉open gl es， 通过glEnableVertexAttribArray打开开关
+        //.2 告诉open gles， 通过glEnableVertexAttribArray打开开关
         //.3 最后数据是通过glVertexAttribPointer传递进去的
         let position = glGetAttribLocation(program, "position")
         glEnableVertexAttribArray(GLuint(position))
